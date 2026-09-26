@@ -1,54 +1,35 @@
-# Remotion video
+# English Friends App – Video (Inglés A1, Parcial 1)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+Video animado con Remotion: Javier y Max platican con subtítulos tipo karaoke.
+El personaje que habla mueve la cabeza, se ilumina su nombre y aparece un globito de voz.
+En la Escena 2 y al final de la Escena 5 aparece la app "English Friends" llenando los perfiles.
 
-Welcome to your Remotion project!
+## Comandos
 
-## Commands
-
-**Install Dependencies**
-
-```console
-npm i
+```bash
+npm i                 # instalar (solo la primera vez)
+npm run dev           # abrir Remotion Studio para ver y editar el video
+npm run render        # crear el video en out/english-friends.mp4
+npm run subtitles     # crear out/english-friends.srt y out/guion-con-tiempos.txt
 ```
 
-**Start Preview**
+## Cambiar diálogos o tiempos
 
-```console
-npm run dev
-```
+Todo está en `src/EnglishFriends/script.ts`:
 
-**Render video**
+- **Textos**: edita el `text` de cada línea.
+- **Una línea necesita más tiempo** (tu voz dura más): agrega `extra: 1` (segundos) a esa línea.
+- **Todo va muy rápido o muy lento**: cambia `SECONDS_PER_WORD` (0.38 por defecto).
 
-```console
-npx remotion render
-```
+## Agregar las voces
 
-**Upgrade Remotion**
+1. Ejecuta `npm run subtitles` y abre `out/guion-con-tiempos.txt`: ahí está el segundo exacto
+   en el que empieza cada línea.
+2. Graba cada línea y colócala en ese tiempo en tu editor (CapCut, iMovie, etc.) junto con
+   `out/english-friends.mp4`. El archivo `.srt` sirve para ver los tiempos en el editor.
+3. Si una grabación no cabe, agrega `extra` a esa línea y vuelve a renderizar.
 
-```console
-npx remotion upgrade
-```
+## Personajes
 
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Las imágenes recortadas están en `public/characters/` (cuerpos y cabezas por separado para
+animar la cabeza al hablar). Las fuentes (Fredoka y Poppins) están en `public/fonts/`.
